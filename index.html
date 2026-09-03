@@ -677,6 +677,41 @@ footer .copy{color:var(--muted);font-size:.85rem;margin-top:14px}
 </section>
 
 
+<!-- ============ LIVE SESSIONS ============ -->
+<style>
+.rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.room-card{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 14px 34px rgba(27,18,51,.18);aspect-ratio:4/3}
+.room-card.wide{grid-column:span 1}
+@media(min-width:820px){.rooms-grid{grid-template-columns:repeat(6,1fr)}
+.room-card{grid-column:span 2}.room-card.wide{grid-column:span 3;aspect-ratio:16/9}}
+.room-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.room-card:hover img{transform:scale(1.05)}
+.room-card figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;color:#fff;font-weight:700;font-size:.86rem;
+background:linear-gradient(transparent,rgba(20,12,40,.82));letter-spacing:.2px}
+@media(max-width:819px){.rooms-grid{grid-template-columns:1fr 1fr}.room-card.wide{grid-column:span 2}}
+</style>
+<section class="sec sec-soft" id="rooms">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">📸 Live sessions</span>
+      <h2>Real rooms. Real play.</h2>
+      <p>The same simulations, on the table and on the screen. Moments from live workshops across the region.</p>
+    </div>
+    <div class="rooms-grid reveal">
+      <figure class="room-card"><img src="room_a.jpg" loading="lazy" alt="Participants reading customer character cards during a live simulation workshop"><figcaption>Reading the customer cards</figcaption></figure>
+      <figure class="room-card"><img src="room_b.jpg" loading="lazy" alt="A team discussing their next move around the table"><figcaption>Table talk before the call</figcaption></figure>
+      <figure class="room-card"><img src="room_c.jpg" loading="lazy" alt="Facilitator working with a team during a card-based simulation"><figcaption>The facilitator raises the stakes</figcaption></figure>
+      <figure class="room-card wide"><img src="room_g.jpg" loading="lazy" alt="Close-up of the Psychology of Money board with employee cards, trucks and a notebook of calculations"><figcaption>Every zenzen accounted for</figcaption></figure>
+      <figure class="room-card wide"><img src="room_h.jpg" loading="lazy" alt="Two participants placing employee cards and game money on the Psychology of Money board"><figcaption>Marwan, Jack and Shady get hired</figcaption></figure>
+      <figure class="room-card"><img src="room_f.jpg" loading="lazy" alt="A corporate cohort playing a simulation across tables in a training room"><figcaption>Teams at the table</figcaption></figure>
+      <figure class="room-card"><img src="room_i.jpg" loading="lazy" alt="A playful team activity with action figures and colored rings"><figcaption>Play is serious business</figcaption></figure>
+      <figure class="room-card"><img src="room_j.jpg" loading="lazy" alt="The Ticket to Life digital trainer dashboard projected on a screen during a session"><figcaption>The digital twin, live on screen</figcaption></figure>
+      <figure class="room-card wide"><img src="room_d.jpg" loading="lazy" alt="Participants exchanging game money over the simulation board"><figcaption>Money changes hands</figcaption></figure>
+      <figure class="room-card wide"><img src="room_e.jpg" loading="lazy" alt="A full room laughing mid-game around the simulation board"><figcaption>Mid-game, full room</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section class="sec" id="contact">
   <div class="wrap">
