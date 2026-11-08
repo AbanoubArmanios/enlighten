@@ -110,6 +110,7 @@ footer b{color:var(--ac)}
 
 
 
+
 <style id="enl-chrome-css">
 .eh{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:saturate(150%) blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #ECE7FB;font-family:Inter,system-ui,sans-serif}
 .eh *{box-sizing:border-box}
@@ -168,7 +169,14 @@ footer b{color:var(--ac)}
 </div>
 <div class="eh-act"><a class="eh-signin" href="learn/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Sign in</span></a><a class="eh-cta" href="work-with-me.html#book">Book a meeting</a>
 <button class="eh-burger" type="button" aria-label="Menu" onclick="document.getElementById('eh').classList.toggle('open')">☰</button></div>
-</div></header><!--/ENL-HEADER-->
+</div></header><script>(function(){try{var a=document.querySelector('.eh-signin');if(!a)return;var q=new URLSearchParams(location.search),pg=location.pathname.split('/').pop()||'index.html',prod={'ticket-to-life.html':'ttl','visual-mba.html':'vmba'}[pg];
+if(/^yt/.test(q.get('src')||'')&&prod)sessionStorage.setItem('enl_intent',prod);
+var nm=localStorage.getItem('enl_name'),it=sessionStorage.getItem('enl_intent');
+if(nm){a.querySelector('span').textContent='My account';a.title='Signed in as '+nm;a.href='learn/';}
+else if(it&&(!prod||prod===it)){a.href='learn/?buy='+it;}
+else{a.href='learn/?next='+encodeURIComponent(location.pathname+location.hash);}
+}catch(e){}})();</script><!--/ENL-HEADER-->
+
 
 
 
@@ -240,6 +248,7 @@ footer b{color:var(--ac)}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 </script>
+
 
 
 

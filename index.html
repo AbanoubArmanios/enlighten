@@ -444,6 +444,7 @@ footer .copy{color:var(--muted);font-size:.85rem;margin-top:14px}
 
 
 
+
 <style id="enl-chrome-css">
 .eh{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:saturate(150%) blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #ECE7FB;font-family:Inter,system-ui,sans-serif}
 .eh *{box-sizing:border-box}
@@ -503,7 +504,14 @@ footer .copy{color:var(--muted);font-size:.85rem;margin-top:14px}
 </div>
 <div class="eh-act"><a class="eh-signin" href="learn/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Sign in</span></a><a class="eh-cta" href="work-with-me.html#book">Book a meeting</a>
 <button class="eh-burger" type="button" aria-label="Menu" onclick="document.getElementById('eh').classList.toggle('open')">☰</button></div>
-</div></header><!--/ENL-HEADER-->
+</div></header><script>(function(){try{var a=document.querySelector('.eh-signin');if(!a)return;var q=new URLSearchParams(location.search),pg=location.pathname.split('/').pop()||'index.html',prod={'ticket-to-life.html':'ttl','visual-mba.html':'vmba'}[pg];
+if(/^yt/.test(q.get('src')||'')&&prod)sessionStorage.setItem('enl_intent',prod);
+var nm=localStorage.getItem('enl_name'),it=sessionStorage.getItem('enl_intent');
+if(nm){a.querySelector('span').textContent='My account';a.title='Signed in as '+nm;a.href='learn/';}
+else if(it&&(!prod||prod===it)){a.href='learn/?buy='+it;}
+else{a.href='learn/?next='+encodeURIComponent(location.pathname+location.hash);}
+}catch(e){}})();</script><!--/ENL-HEADER-->
+
 
 
 
@@ -716,14 +724,14 @@ footer .copy{color:var(--muted);font-size:.85rem;margin-top:14px}
       <div class="ind-tx"><span class="ind-k">Life-skills simulation</span><h3>Ticket to Life</h3>
         <p>Live a whole life from 18 to 75 in one sitting. Every choice about money, career, health and love spends a resource, and you see where your decisions lead.</p>
         <ul><li>About 2&ndash;3 hours, seven life chapters</li><li>Your personal ticket code, one full life per ticket</li><li>A life report you can download and print</li></ul>
-        <div class="ind-btns"><a class="btn btn-primary" href="learn/?p=ttl">Get a ticket &middot; EGP 499 / $15</a><a class="btn btn-ghost" href="ticket-to-life.html">Learn more</a></div></div>
+        <div class="ind-btns"><a class="btn btn-primary" href="learn/?buy=ttl">Get a ticket &middot; EGP 499 / $15</a><a class="btn btn-ghost" href="ticket-to-life.html">Learn more</a></div></div>
       <a class="ind-img" href="ticket-to-life.html" style="background:linear-gradient(150deg,#22d3ee,#a78bfa 50%,#ec4899)"><img src="img/m/6ceb33b6ec3f.webp" alt="Ticket to Life screenshot" loading="lazy"></a>
     </div>
     <div class="ind-row rev reveal">
       <div class="ind-tx"><span class="ind-k">Online course</span><h3>Visual MBA</h3>
         <p>The core ideas of an MBA in 20 short animated stories: leadership, finance, marketing, strategy, operations and change.</p>
         <ul><li>20 episodes of about 3 minutes each</li><li>A quiz after every episode</li><li>A certificate when you finish</li></ul>
-        <div class="ind-btns"><a class="btn btn-primary" href="learn/">Get full access &middot; EGP 999 / $29</a><a class="btn btn-ghost" href="visual-mba-demo/">Try the free demo</a></div></div>
+        <div class="ind-btns"><a class="btn btn-primary" href="learn/?buy=vmba">Get full access &middot; EGP 999 / $29</a><a class="btn btn-ghost" href="visual-mba-demo/">Try the free demo</a></div></div>
       <a class="ind-img" href="visual-mba.html" style="background:linear-gradient(150deg,#1b1233,#6c2bd9)"><img src="img/vmba-episode.webp" alt="Visual MBA episode 1: Nobody follows a title" loading="lazy"></a>
     </div>
   </div>
@@ -1130,6 +1138,7 @@ rndPop('.am',[['✅ served','#16a34a'],['⚠ crisis!','#ef4444'],['+'+(10+Math.f
 rndPop('.disc',[['🎯 match!','#2563eb'],['+'+(60+Math.floor(Math.random()*38))+'%','#7c3aed'],['🤝 in sync','#059669'],['⚡ lead!','#e6a700']],1600);
 rndPop('.ttl',[['⭐ Level up!','#e6a700'],['+1 🪙','#16a34a'],['🎉 nice!','#ff5fa2'],['🎲 roll!','#2563eb']],2000);
 </script>
+
 
 
 

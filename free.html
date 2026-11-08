@@ -45,6 +45,7 @@ footer{padding:44px 0 30px;text-align:center;border-top:1px solid var(--line);co
 
 
 
+
 <style id="enl-chrome-css">
 .eh{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:saturate(150%) blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #ECE7FB;font-family:Inter,system-ui,sans-serif}
 .eh *{box-sizing:border-box}
@@ -103,7 +104,14 @@ footer{padding:44px 0 30px;text-align:center;border-top:1px solid var(--line);co
 </div>
 <div class="eh-act"><a class="eh-signin" href="learn/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Sign in</span></a><a class="eh-cta" href="work-with-me.html#book">Book a meeting</a>
 <button class="eh-burger" type="button" aria-label="Menu" onclick="document.getElementById('eh').classList.toggle('open')">☰</button></div>
-</div></header><!--/ENL-HEADER-->
+</div></header><script>(function(){try{var a=document.querySelector('.eh-signin');if(!a)return;var q=new URLSearchParams(location.search),pg=location.pathname.split('/').pop()||'index.html',prod={'ticket-to-life.html':'ttl','visual-mba.html':'vmba'}[pg];
+if(/^yt/.test(q.get('src')||'')&&prod)sessionStorage.setItem('enl_intent',prod);
+var nm=localStorage.getItem('enl_name'),it=sessionStorage.getItem('enl_intent');
+if(nm){a.querySelector('span').textContent='My account';a.title='Signed in as '+nm;a.href='learn/';}
+else if(it&&(!prod||prod===it)){a.href='learn/?buy='+it;}
+else{a.href='learn/?next='+encodeURIComponent(location.pathname+location.hash);}
+}catch(e){}})();</script><!--/ENL-HEADER-->
+
 
 
 
@@ -140,6 +148,7 @@ const p=new URLSearchParams(location.search).get('r');if(p&&names[p])document.ge
 document.getElementById('leadF').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,m=document.getElementById('lm'),btn=f.querySelector('button');btn.disabled=true;btn.textContent='Unlocking…';
  const d=Object.fromEntries(new FormData(f));try{if(!window.saveTo)throw new Error('offline');await window.saveTo('leads',d);try{localStorage.setItem(KEY,'1')}catch(e){}show();}catch(err){m.className='msg err';m.textContent='Something went wrong. Please try again, or email abanoub.armanios@enlightensim.org.';btn.disabled=false;btn.textContent='Send me the free resources →'}});
 </script>
+
 
 
 

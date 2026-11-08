@@ -41,7 +41,7 @@ h1{font-size:32px;margin:6px 0 4px}.vid{margin-top:16px;max-width:980px;border-r
 @media(max-width:820px){.wrap{flex-direction:column}nav{width:auto;max-height:180px;border-right:0;border-bottom:1px solid var(--line)}main{padding:18px}}
 @media print{.top,nav,.noprint{display:none!important}main{padding:0}.cert{box-shadow:none}}
 </style></head><body>
-<div class="top"><a href="../visual-mba.html" class="back" title="Back to Visual MBA">← Back</a><a href="../index.html"><img src="assets/logo.png" alt="Enlighten"></a><span class="ttl">Visual MBA <small style="font-family:IN;font-weight:600;font-size:11px;letter-spacing:.1em;color:var(--v);background:var(--t);padding:3px 8px;border-radius:99px;margin-left:6px">FREE DEMO</small></span><div class="bar"><i id="bar"></i></div><span class="pct" id="pct">0%</span><a class="getfull" href="../learn/">Get the full course</a></div>
+<div class="top"><a href="../visual-mba.html" class="back" title="Back to Visual MBA">← Back</a><a href="../index.html"><img src="assets/logo.png" alt="Enlighten"></a><span class="ttl">Visual MBA <small style="font-family:IN;font-weight:600;font-size:11px;letter-spacing:.1em;color:var(--v);background:var(--t);padding:3px 8px;border-radius:99px;margin-left:6px">FREE DEMO</small></span><div class="bar"><i id="bar"></i></div><span class="pct" id="pct">0%</span><a class="getfull" href="../learn/?buy=vmba">Get the full course</a></div>
 <div class="wrap"><nav id="nav"></nav><main id="main"></main></div>
 <script src="course.js"></script>
 <script>
@@ -77,7 +77,7 @@ function check(i){const m=M[i];let ok=0,all=true;document.querySelectorAll('.q')
  const msg=document.getElementById('msg');if(!all){msg.className='msg bad';msg.textContent='Answer both questions first.';return}
  if(st.s[i]==null)st.s[i]=Math.round(ok/m.q.length*100);
  if(ok===m.q.length){st.d[i]=1;save();navR();const nx=M.findIndex((_,k)=>!st.d[k]&&unlocked(k));msg.className='msg ok';
-  msg.innerHTML=(Object.keys(st.d).length===N?'🎉 Course complete! ':'✓ Episode complete. ')+(Object.keys(st.d).length===N?`<button class="btn" onclick="cert()">Get your certificate</button>`:nx>=0?`<button class="btn" onclick="go(${nx})">Next episode →</button>`:(DEMO?'<br>That’s the end of the demo. <a href="../learn/">Get the full course →</a>':''));}
+  msg.innerHTML=(Object.keys(st.d).length===N?'🎉 Course complete! ':'✓ Episode complete. ')+(Object.keys(st.d).length===N?`<button class="btn" onclick="cert()">Get your certificate</button>`:nx>=0?`<button class="btn" onclick="go(${nx})">Next episode →</button>`:(DEMO?'<br>That’s the end of the demo. <a href="../learn/?buy=vmba">Get the full course →</a>':''));}
  else{save();msg.className='msg bad';msg.textContent='Not quite. Rewatch the key moment and try again.'}}
 function cert(){if(Object.keys(st.d).length<N)return;const nm=(S.get('cmi.core.student_name')||'').split(',').reverse().join(' ').trim()||'Learner';
  document.getElementById('main').innerHTML=`<div class="cert"><img src="assets/logo.png" style="height:56px"><div class="k" style="margin-top:22px">Certificate of completion</div><h2>Visual MBA</h2><p style="color:var(--muted)">This certifies that</p><div class="nm">${esc(nm)}</div>

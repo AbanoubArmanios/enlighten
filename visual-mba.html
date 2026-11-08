@@ -45,6 +45,7 @@ footer{padding:44px 0 30px;text-align:center;border-top:1px solid var(--line);co
 
 
 
+
 <style id="enl-chrome-css">
 .eh{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:saturate(150%) blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #ECE7FB;font-family:Inter,system-ui,sans-serif}
 .eh *{box-sizing:border-box}
@@ -103,7 +104,14 @@ footer{padding:44px 0 30px;text-align:center;border-top:1px solid var(--line);co
 </div>
 <div class="eh-act"><a class="eh-signin" href="learn/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Sign in</span></a><a class="eh-cta" href="work-with-me.html#book">Book a meeting</a>
 <button class="eh-burger" type="button" aria-label="Menu" onclick="document.getElementById('eh').classList.toggle('open')">☰</button></div>
-</div></header><!--/ENL-HEADER-->
+</div></header><script>(function(){try{var a=document.querySelector('.eh-signin');if(!a)return;var q=new URLSearchParams(location.search),pg=location.pathname.split('/').pop()||'index.html',prod={'ticket-to-life.html':'ttl','visual-mba.html':'vmba'}[pg];
+if(/^yt/.test(q.get('src')||'')&&prod)sessionStorage.setItem('enl_intent',prod);
+var nm=localStorage.getItem('enl_name'),it=sessionStorage.getItem('enl_intent');
+if(nm){a.querySelector('span').textContent='My account';a.title='Signed in as '+nm;a.href='learn/';}
+else if(it&&(!prod||prod===it)){a.href='learn/?buy='+it;}
+else{a.href='learn/?next='+encodeURIComponent(location.pathname+location.hash);}
+}catch(e){}})();</script><!--/ENL-HEADER-->
+
 
 
 
@@ -111,7 +119,7 @@ footer{padding:44px 0 30px;text-align:center;border-top:1px solid var(--line);co
 <section class="hero"><div class="blob" style="width:480px;height:480px;background:radial-gradient(circle,#d7c3ff,#fff0 70%);top:-120px;left:-120px"></div><div class="blob" style="width:420px;height:420px;background:radial-gradient(circle,#ffe39e,#fff0 70%);top:80px;right:-140px"></div>
 <div class="wrap"><span class="eyebrow">Online course · For individuals &amp; teams</span><h1>The whole MBA, <span class="gt">in 60 minutes of stories.</span></h1>
 <p class="lead">20 animated 3-minute episodes that teach the business frameworks every manager needs, with quizzes, takeaways and a certificate. Watch online, or bring it to your company’s LMS.</p>
-<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px"><a class="btn btn-primary" href="learn/">Get full access</a><a class="btn btn-ghost" href="visual-mba-demo/">Try the free demo</a></div>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px"><a class="btn btn-primary" href="learn/?buy=vmba">Get full access</a><a class="btn btn-ghost" href="visual-mba-demo/">Try the free demo</a></div>
 <div class="stats"><div><b>20</b><span>episodes, ~3 min each</span></div><div><b>40</b><span>quiz questions</span></div><div><b>SCORM 1.2</b><span>works with any LMS</span></div><div><b>✓</b><span>completion certificate</span></div></div></div></section>
 <section class="soft"><div class="wrap"><span class="eyebrow">What's inside</span><h2>Built for busy managers. <span class="gt">Remembered for years.</span></h2>
 <div class="grid g3" style="margin-top:28px"><div class="card"><div class="ic">🎬</div><h3>Story-led episodes</h3><p>Each framework told as a short animated story people actually finish and remember.</p></div><div class="card"><div class="ic">✅</div><h3>Quizzes and tracking</h3><p>Two questions per episode. Progress, score and completion report back to your LMS.</p></div><div class="card"><div class="ic">🛠️</div><h3>Try it at work</h3><p>Every episode ends with one action to apply this week, so learning turns into behaviour.</p></div><div class="card"><div class="ic">🎓</div><h3>Certificate</h3><p>Learners get a printable certificate when they complete all 20 episodes.</p></div><div class="card"><div class="ic">📱</div><h3>Any device</h3><p>Works on desktop, tablet and phone, inside your LMS.</p></div><div class="card"><div class="ic">🤝</div><h3>Blended option</h3><p>Add a live Enlighten business simulation to put the MBA into practice.</p></div></div></div></section>
@@ -121,10 +129,11 @@ footer{padding:44px 0 30px;text-align:center;border-top:1px solid var(--line);co
 <section class="soft" id="pricing"><div class="wrap"><span class="eyebrow">Get access</span><h2>Learn it yourself, <span class="gt">or train your whole team.</span></h2>
 <div class="grid g2" style="margin-top:28px">
 <div class="card" style="border:2px solid var(--purple)"><span class="eyebrow">For individuals</span><h3 style="font-size:1.6rem;margin-top:12px">The full Visual MBA</h3><p>All 20 episodes, takeaways, 40 quiz questions and a certificate in your name. Pay once, start in minutes, learn at your own pace on any device.</p>
-<a class="btn btn-primary" style="margin-top:18px;width:100%" href="learn/">Get full access →</a><p style="font-size:.85rem;color:var(--muted);margin-top:8px;text-align:center">Create your account, pay, and the course opens automatically.</p></div>
+<a class="btn btn-primary" style="margin-top:18px;width:100%" href="learn/?buy=vmba">Get full access →</a><p style="font-size:.85rem;color:var(--muted);margin-top:8px;text-align:center">Create your account, pay, and the course opens automatically.</p></div>
 <div class="card"><span class="eyebrow">For companies</span><h3 style="font-size:1.6rem;margin-top:12px">Corporate e-learning</h3><p>Visual MBA for your managers inside your LMS (SCORM), progress tracking and certificates, plus custom e-learning, blended programs and live business simulations built around your goals.</p>
 <a class="btn btn-ghost" style="margin-top:18px;width:100%" href="work-with-me.html?service=Visual%20MBA%20workshop&src=visual-mba#book">Book a meeting →</a><p style="font-size:.85rem;color:var(--muted);margin-top:8px;text-align:center">Tell us about your team. We'll reply within one working day.</p></div>
 </div><p class="sub" style="margin-top:18px">Serving learners and companies in Egypt, the Middle East and the USA.</p></div></section>
+
 
 
 
