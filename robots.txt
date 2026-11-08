@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://enlightensim.org/sitemap.xml
