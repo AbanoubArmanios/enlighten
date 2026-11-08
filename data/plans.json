@@ -7,11 +7,25 @@
         "individual": {
           "name": "Individual",
           "seats": 1,
-          "priceUSD": null,
-          "priceEGP": null,
+          "priceUSD": 29,
+          "priceEGP": 999,
           "checkout": "online"
         }
       },
+      "corporate": "meeting"
+    },
+    "ticket-to-life": {
+      "name": "Ticket to Life \u00b7 play on your own (one play-through)",
+      "plans": {
+        "individual": {
+          "name": "Individual ticket",
+          "seats": 1,
+          "priceUSD": 15,
+          "priceEGP": 499,
+          "checkout": "online"
+        }
+      },
+      "playUrl": "https://ticket-to-life-f7e16.web.app/",
       "corporate": "meeting"
     }
   },
