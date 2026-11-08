@@ -637,7 +637,7 @@ else{a.href='learn/?next='+encodeURIComponent(location.pathname+location.hash);}
         <div class="sim-comps"><span class="cl">Competencies developed</span><div class="comp-chips"><span style="background:#fff6da;color:#9a6f00">Financial Acumen</span><span style="background:#fff6da;color:#9a6f00">Operational Excellence</span><span style="background:#fff6da;color:#9a6f00">Strategic Thinking</span><span style="background:#fff6da;color:#9a6f00">Data-Driven Decisions</span></div></div>
         <div class="sim-cta">
           <a class="btn btn-primary" href="#contact">📅 Book a demo</a>
-          <a class="btn btn-ghost" href="psychology-of-money.html" target="_blank" rel="noopener">📄 View overview ↗</a>
+          <button class="btn btn-ghost" type="button" onclick="promo('psychology-of-money','Psychology of Money')">▶ Watch promo</button><a class="btn btn-ghost" href="psychology-of-money.html">📄 View overview</a>
         </div>
       </div>
     </div>
@@ -662,7 +662,7 @@ else{a.href='learn/?next='+encodeURIComponent(location.pathname+location.hash);}
         <div class="sim-comps"><span class="cl">Competencies developed</span><div class="comp-chips"><span style="background:#e6fbff;color:#0b6b78">Strategic Thinking</span><span style="background:#e6fbff;color:#0b6b78">Decision-Making</span><span style="background:#e6fbff;color:#0b6b78">Resource Management</span><span style="background:#e6fbff;color:#0b6b78">Customer Focus</span><span style="background:#e6fbff;color:#0b6b78">Team Collaboration</span><span style="background:#e6fbff;color:#0b6b78">Adaptability</span></div></div>
         <div class="sim-cta">
           <a class="btn btn-primary" href="#contact">📅 Book a demo</a>
-          <a class="btn btn-ghost" href="aftermath.html" target="_blank" rel="noopener">📄 View overview ↗</a>
+          <button class="btn btn-ghost" type="button" onclick="promo('aftermath','Aftermath')">▶ Watch promo</button><a class="btn btn-ghost" href="aftermath.html">📄 View overview</a>
         </div>
       </div>
     </div>
@@ -685,7 +685,7 @@ else{a.href='learn/?next='+encodeURIComponent(location.pathname+location.hash);}
         <div class="sim-comps"><span class="cl">Competencies developed</span><div class="comp-chips"><span style="background:#f3edff;color:#5b1fb8">Leadership Skills</span><span style="background:#f3edff;color:#5b1fb8">Communication</span><span style="background:#f3edff;color:#5b1fb8">Talent Management</span><span style="background:#f3edff;color:#5b1fb8">Motivation</span></div></div>
         <div class="sim-cta">
           <a class="btn btn-primary" href="#contact">📅 Book a demo</a>
-          <a class="btn btn-ghost" href="disc-leadership.html" target="_blank" rel="noopener">📄 View overview ↗</a>
+          <button class="btn btn-ghost" type="button" onclick="promo('disc-leadership','DISC Based Leadership')">▶ Watch promo</button><a class="btn btn-ghost" href="disc-leadership.html">📄 View overview</a>
         </div>
       </div>
     </div>
@@ -711,7 +711,7 @@ else{a.href='learn/?next='+encodeURIComponent(location.pathname+location.hash);}
         <div class="sim-comps"><span class="cl">Competencies developed</span><div class="comp-chips"><span style="background:#ffe9f2;color:#c01f6b">Financial Literacy</span><span style="background:#ffe9f2;color:#c01f6b">Career Planning</span><span style="background:#ffe9f2;color:#c01f6b">Decision-Making</span><span style="background:#ffe9f2;color:#c01f6b">Goal-Setting</span></div></div>
         <div class="sim-cta">
           <a class="btn btn-primary" href="#contact">📅 Book a demo</a>
-          <a class="btn btn-ghost" href="ticket-to-life.html" target="_blank" rel="noopener">📄 View overview ↗</a>
+          <button class="btn btn-ghost" type="button" onclick="promo('ticket-to-life','Ticket to Life')">▶ Watch promo</button><a class="btn btn-ghost" href="ticket-to-life.html">📄 View overview</a>
         </div>
       </div>
     </div>
@@ -1145,6 +1145,12 @@ rndPop('.ttl',[['⭐ Level up!','#e6a700'],['+1 🪙','#16a34a'],['🎉 nice!','
 
 
 
+<div id="pm" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(14,8,30,.86);align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this)promoClose()">
+<div style="width:min(1000px,100%)"><div style="display:flex;justify-content:space-between;align-items:center;color:#fff;margin-bottom:10px;font:700 18px Inter,sans-serif"><span id="pmT"></span><button onclick="promoClose()" style="background:#fff2;border:0;color:#fff;font-size:22px;width:40px;height:40px;border-radius:50%;cursor:pointer">×</button></div>
+<video id="pmV" controls playsinline style="width:100%;border-radius:16px;background:#000;box-shadow:0 30px 60px rgba(0,0,0,.5)"></video></div></div>
+<script>function promo(k,n){var m=document.getElementById('pm'),v=document.getElementById('pmV');document.getElementById('pmT').textContent=n+' · promo';v.poster='video/'+k+'-poster.jpg';v.src='video/'+k+'-promo.mp4';m.style.display='flex';document.body.style.overflow='hidden';v.play().catch(function(){});}
+function promoClose(){var v=document.getElementById('pmV');v.pause();v.removeAttribute('src');v.load();document.getElementById('pm').style.display='none';document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')promoClose()});</script>
 <!--ENL-FOOTER--><footer class="ef"><div class="ef-in">
 <div><div class="ef-brand"><b>Enlighten<i>.</i></b></div><p>Learning, but make it unforgettable. Business simulations and learning experiences by Abanoub Armanios · Cairo, Egypt.</p></div>
 <div><h4>Play &amp; learn</h4><a href="ticket-to-life.html">Ticket to Life</a><a href="visual-mba.html">Visual MBA course</a><a href="free.html">Free resources</a><a href="learn/">My account</a></div>
