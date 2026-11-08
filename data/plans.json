@@ -2,13 +2,18 @@
   "currencyDefault": "USD",
   "products": {
     "visual-mba": {
-      "name": "Visual MBA (SCORM licence, 12 months)",
+      "name": "Visual MBA (full online course, lifetime access)",
       "plans": {
-        "team":       {"name": "Team",       "seats": 50,   "priceUSD": null, "priceEGP": null, "checkout": "invoice"},
-        "business":   {"name": "Business",   "seats": 250,  "priceUSD": null, "priceEGP": null, "checkout": "invoice"},
-        "enterprise": {"name": "Enterprise", "seats": null, "priceUSD": null, "priceEGP": null, "checkout": "quote"}
-      }
+        "individual": {
+          "name": "Individual",
+          "seats": 1,
+          "priceUSD": null,
+          "priceEGP": null,
+          "checkout": "online"
+        }
+      },
+      "corporate": "meeting"
     }
   },
-  "_notes": "Set priceUSD/priceEGP to numbers and checkout to 'online' once a payment provider is connected in js/payments.js. null price = shown as 'Request invoice'."
+  "_notes": "Set individual priceUSD/priceEGP to numbers. Corporate e-learning is sold through a meeting (work-with-me.html), not online checkout."
 }

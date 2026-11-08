@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Enlighten admin</title>
+<style>body{font-family:system-ui,sans-serif;background:#F8F6FF;color:#1B1233;margin:0;padding:24px}h1{font-size:24px}.card{background:#fff;border:1px solid #E4DCF7;border-radius:16px;padding:18px;margin:14px 0;max-width:980px}
+button{font:600 14px system-ui;padding:9px 16px;border-radius:999px;border:0;background:linear-gradient(115deg,#6C2BD9,#FF5FA2);color:#fff;cursor:pointer}button.g{background:#fff;color:#1B1233;border:1.5px solid #E4DCF7}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:8px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}.pill{font-size:12px;padding:3px 8px;border-radius:99px;background:#FFF3C4}.paid{background:#DDF7EA}#msg{font-weight:600;margin-top:8px}</style></head><body>
+<h1>Enlighten admin · Visual MBA</h1><div id="who"></div>
+<div class="card" id="login"><button id="g">Sign in with Google</button> <span style="font-size:13px;color:#6F6390">Admin accounts only.</span></div>
+<div id="app" style="display:none">
+ <div class="card"><b>Course content</b> <span id="cst"></span></div>
+ <div class="card"><b>Learner orders</b> <button class="g" id="rf">Refresh</button><div id="msg"></div><table><thead><tr><th>When</th><th>Learner</th><th>Pay in</th><th>Status</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+ <div class="card"><b>Recent sign-ups (free resources)</b><table><tbody id="leads"></tbody></table></div>
+ <div class="card"><b>Corporate enquiries</b><table><tbody id="enq"></tbody></table></div>
+</div>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,onAuthStateChanged,GoogleAuthProvider,signInWithPopup,signOut} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getFirestore,doc,getDoc,setDoc,updateDoc,collection,query,orderBy,limit,getDocs,serverTimestamp,writeBatch} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const app=initializeApp({"apiKey": "AIzaSyAWx1VbP6w6s0gt0YFBiylg_vj0q4ux7BY", "authDomain": "enlighten-website-75dfd.firebaseapp.com", "projectId": "enlighten-website-75dfd", "storageBucket": "enlighten-website-75dfd.firebasestorage.app", "messagingSenderId": "629120766450", "appId": "1:629120766450:web:50be642246ec032bd91b6b"});const auth=getAuth(app),db=getFirestore(app);const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+$('g').onclick=()=>signInWithPopup(auth,new GoogleAuthProvider());
+const fmt=t=>t&&t.toDate?t.toDate().toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'}):'';
+onAuthStateChanged(auth,async u=>{if(!u){$('login').style.display='';$('app').style.display='none';return}
+ $('who').innerHTML=esc(u.email)+' · <a href="#" id="so">sign out</a>';$('so').onclick=e=>{e.preventDefault();signOut(auth)};$('login').style.display='none';$('app').style.display='';load()});
+async function load(){try{const c=await getDoc(doc(db,'content','visual-mba'));$('cst').textContent=c.exists()?'· '+Object.keys(c.data()).filter(k=>/^e\d+$/.test(k)).length+' of 20 videos published':'· NOT published yet';
+ const os=await getDocs(query(collection(db,'orders'),orderBy('ts','desc'),limit(100)));
+ $('rows').innerHTML=os.docs.filter(d=>d.data().plan==='individual').map(d=>{const o=d.data();return `<tr><td>${fmt(o.ts)}<br><small>${d.id.slice(0,8).toUpperCase()}</small></td><td>${esc(o.name)}<br>${esc(o.email)}<br>${esc(o.phone)}</td><td>${esc(o.currency)}</td><td><span class="pill ${o.status==='paid'?'paid':''}">${esc(o.status)}</span></td><td>${o.status==='paid'?'':`<button data-id="${d.id}" data-uid="${esc(o.uid)}">Mark paid & unlock</button>`}</td></tr>`}).join('')||'<tr><td>No learner orders yet.</td></tr>';
+ document.querySelectorAll('button[data-id]').forEach(b=>b.onclick=()=>unlock(b.dataset.id,b.dataset.uid,b));
+ const ls=await getDocs(query(collection(db,'leads'),orderBy('ts','desc'),limit(30)));$('leads').innerHTML=ls.docs.map(d=>{const o=d.data();return `<tr><td>${fmt(o.ts)}</td><td>${esc(o.name)}</td><td>${esc(o.email)}</td><td>${esc(o.company)}</td><td>${esc(o.role)}</td><td>${esc(o.source)}</td></tr>`}).join('');
+ const es=await getDocs(query(collection(db,'enquiries'),orderBy('ts','desc'),limit(30)));$('enq').innerHTML=es.docs.map(d=>{const o=d.data();return `<tr><td>${fmt(o.ts)}</td><td>${esc(o.name)}<br>${esc(o.email)}</td><td>${esc(o.company)}</td><td>${esc(o.service)} · ${esc(o.teamSize)}</td><td>${esc(o.message)}</td></tr>`}).join('');
+ }catch(e){$('msg').textContent='Not authorised or error: '+e.code}}
+async function unlock(id,uid,b){if(!confirm('Confirm payment received and unlock the course for this learner?'))return;b.disabled=true;
+ const w=writeBatch(db);w.set(doc(db,'entitlements',uid),{products:{'visual-mba':true},orderId:id,grantedAt:serverTimestamp()},{merge:true});w.update(doc(db,'orders',id),{status:'paid'});
+ await w.commit().then(()=>{$('msg').textContent='Unlocked ✓';load()}).catch(e=>{$('msg').textContent='Error: '+e.code;b.disabled=false})}
+$('rf').onclick=load;
+</script></body></html>
