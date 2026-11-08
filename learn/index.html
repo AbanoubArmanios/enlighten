@@ -49,7 +49,7 @@ h1{font-size:32px;margin:6px 0 4px}.vid{margin-top:16px;max-width:980px;border-r
 .price{font-family:SG;font-weight:700;font-size:40px;color:var(--v)}
 ul.inc{margin:14px 0 0 18px;line-height:1.9;color:var(--ink2)}
 .hidden{display:none!important}
-.dash{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.dc{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff}
+.dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:18px}.dc{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff}
 .dc h3{font-family:SG;font-size:20px;margin:6px 0}.dc p{font-size:14px;margin:6px 0}.dc .btn{margin-top:10px;text-decoration:none}.dc a{text-decoration:none}
 .tk2{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;margin-top:10px}.tk2 code{font-family:SG;font-weight:700;letter-spacing:.06em}
 .ex{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}.ex a{border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--ink)}.ex a:hover{background:var(--w)}.ex b{display:block;font-size:15px}.ex span{display:block;font-size:12.5px;color:var(--muted);margin-top:4px}
@@ -67,12 +67,12 @@ ul.inc{margin:14px 0 0 18px;line-height:1.9;color:var(--ink2)}
   <button class="btn" id="goBtn" style="width:100%;justify-content:center">Sign in</button>
   <p style="margin-top:12px;font-size:14px"><button class="link" id="mode">New here? Create an account</button> · <button class="link" id="forgot">Forgot password?</button></p>
   <div class="msg" id="am"></div></div>
- <div class="gate hidden" id="homeBox" style="max-width:880px"><div class="k">My account</div><h2 id="hello">Welcome back</h2><p>Everything you own on Enlighten, in one place.</p>
+ <div class="gate hidden" id="homeBox" style="max-width:880px"><div class="k">My account</div><h2 id="hello">Welcome back</h2><p id="dSub"></p><p id="dEmpty" class="hidden">You&rsquo;re signed in. Anything you buy on Enlighten will appear here.</p>
   <div class="dash">
    <div class="dc"><div class="k">Visual MBA · online course</div><div id="dV"><p>Loading…</p></div></div>
    <div class="dc"><div class="k">Ticket to Life · play on your own</div><div id="dT"><p>Loading…</p></div></div>
   </div>
-  <div class="k" style="margin-top:28px">Explore Enlighten</div>
+  <div class="k" style="margin-top:28px">Continue browsing</div>
   <div class="ex"><a href="../index.html#simulations"><b>Simulations</b><span>All four flagship simulations</span></a><a href="../work-with-me.html"><b>For companies</b><span>Training for your team</span></a><a href="../free.html"><b>Free resources</b><span>Cheat sheet, toolkit, demos</span></a><a href="../index.html"><b>Home</b><span>Back to the website</span></a></div>
  </div>
  <div class="gate hidden" id="buyBox"><div class="k">Full access</div><h2>Unlock the whole Visual MBA</h2>
@@ -137,17 +137,18 @@ function setPrice(){if(!PLAN)return;const c=$('cur').value,p=c==='EGP'?PLAN.pric
 $('cur').onchange=setPrice;
 async function vmbaState(u){let own=false,pend=null;try{const e=await getDoc(doc(db,'entitlements',u.uid));own=!!(e.exists()&&e.data().products&&e.data().products['visual-mba'])}catch(e){}
  if(!own){const q=await getDocs(query(collection(db,'orders'),where('uid','==',u.uid))).catch(()=>null);pend=q&&q.docs.find(d=>d.data().status==='pending_payment'&&d.data().product==='visual-mba')}return {own,pend}}
-async function loadHome(u){show('homeBox');$('hello').textContent='Welcome'+(u.displayName?', '+u.displayName.split(' ')[0]:'');
- const v=await vmbaState(u);let pr=0;if(v.own){try{const p=await getDoc(doc(db,'progress',u.uid));if(p.exists())pr=Math.round(Object.keys(p.data().d||{}).length/COURSE.length*100)}catch(e){}}
- $('dV').innerHTML=v.own?`<h3>You own the course</h3><p>${pr}% complete</p><a class="btn" href="./?go=course">${pr?'Continue the course →':'Start the course →'}</a>`:v.pend?`<h3>Order ${v.pend.id.slice(0,8).toUpperCase()}</h3><p>Awaiting payment. We'll email you the details; the course opens here once paid.</p>`:`<h3>Not in your account yet</h3><p>20 short animated episodes, quizzes and a certificate.</p><a class="btn ghost" href="../visual-mba.html">Explore Visual MBA</a> <a class="link" href="../visual-mba-demo/">Free demo</a>`;
+async function loadHome(u){show('homeBox');$('hello').textContent='Welcome'+(u.displayName?', '+u.displayName.split(' ')[0]:'');$('dV').parentNode.classList.add('hidden');$('dT').parentNode.classList.add('hidden');
+ const v=await vmbaState(u);let n=0;
+ if(v.own||v.pend){n++;let pr=0;if(v.own){try{const p=await getDoc(doc(db,'progress',u.uid));if(p.exists())pr=Math.round(Object.keys(p.data().d||{}).length/COURSE.length*100)}catch(e){}}
+  $('dV').innerHTML=v.own?`<h3>Visual MBA</h3><p>${pr}% complete</p><a class="btn" href="./?go=course">${pr?'Continue the course →':'Start the course →'}</a>`:`<h3>Visual MBA</h3><p>Order ${v.pend.id.slice(0,8).toUpperCase()} is awaiting payment. The course opens here as soon as it's confirmed.</p>`;$('dV').parentNode.classList.remove('hidden')}
  const q=await getDocs(query(collection(db,'orders'),where('uid','==',u.uid))).catch(()=>null);const os=(q?q.docs:[]).map(d=>({id:d.id,...d.data()})).filter(o=>o.product==='ticket-to-life').sort((a,b)=>(b.ts?.seconds||0)-(a.ts?.seconds||0));
- if(!os.length){$('dT').innerHTML=`<h3>No tickets yet</h3><p>Live a whole life from 18 to 75, choice by choice.</p><a class="btn ghost" href="../ticket-to-life.html">Explore Ticket to Life</a>`;return}
- const rows=[];for(const o of os.slice(0,4)){if(o.status!=='paid'||!o.code){rows.push(`<div class="tk2"><span>⏳ Order ${o.id.slice(0,8).toUpperCase()}</span><small>awaiting payment</small></div>`);continue}
+ if(os.length){n++;const rows=[];for(const o of os.slice(0,6)){if(o.status!=='paid'||!o.code){rows.push(`<div class="tk2"><span>⏳ Order ${o.id.slice(0,8).toUpperCase()}</span><small>awaiting payment</small></div>`);continue}
   let stc='new';try{const c=await getDoc(doc(db,'ttlCodes',o.code));stc=c.exists()?c.data().status:'new'}catch(e){}
   rows.push(`<div class="tk2"><code>${esc(o.code)}</code>${stc==='used'?'<small>Finished</small>':`<a class="btn" style="margin:0" href="${PLAY}?code=${encodeURIComponent(o.code)}#solo">${stc==='active'?'Continue':'Play'} →</a>`}</div>`)}
- $('dT').innerHTML=`<h3>Your tickets</h3>${rows.join('')}<p style="margin-top:12px"><a class="link" href="./?buy=ttl">Buy another ticket</a></p>`;}
+  $('dT').innerHTML=`<h3>Ticket to Life</h3>${rows.join('')}`;$('dT').parentNode.classList.remove('hidden')}
+ $('dEmpty').classList.toggle('hidden',n>0);$('dSub').textContent=n?'Your purchases':'';}
 onAuthStateChanged(auth,async u=>{user=u;unsubEnt&&unsubEnt();$('who').textContent=u?(u.displayName||u.email):'';$('out').classList.toggle('hidden',!u);$('acct').classList.toggle('hidden',!u||(!BUY&&!GO));
- try{u?localStorage.setItem('enl_name',(u.displayName||u.email||'').split(/[ @]/)[0]):localStorage.removeItem('enl_name')}catch(e){}
+ try{if(u){localStorage.setItem('enl_name',(u.displayName||u.email||'').split(/[ @]/)[0]);localStorage.setItem('enl_email',u.email||'');localStorage.setItem('enl_full',u.displayName||'')}else['enl_name','enl_email','enl_full'].forEach(k=>localStorage.removeItem(k))}catch(e){}
  if(!u){show('authBox');['barw','pct'].forEach(i=>$(i).classList.add('hidden'));return}
  if(NEXT){location.replace(NEXT);return}
  if(TTL){show('ttlBox');loadTTL();return}

@@ -141,9 +141,12 @@ document.dispatchEvent(new Event('fbready'));
 <script>
 const KEY='enl_lead';let unlocked=false;try{unlocked=localStorage.getItem(KEY)==='1'}catch(e){}
 const show=()=>{document.getElementById('leadF').style.display='none';document.getElementById('unlocked').style.display='block'};
-if(unlocked)show();
+let me={};try{me={email:localStorage.getItem('enl_email')||'',name:localStorage.getItem('enl_full')||localStorage.getItem('enl_name')||''}}catch(e){}
+if(me.email){show();document.querySelector('#get h2').textContent='Your free resources';document.querySelector('#get .sub').textContent='You are signed in, so everything is unlocked.';
+ if(!unlocked){const rec=()=>window.saveTo&&window.saveTo('leads',{name:me.name,email:me.email,resource:'all'}).then(()=>{try{localStorage.setItem(KEY,'1')}catch(e){}}).catch(()=>{});window.saveTo?rec():document.addEventListener('fbready',rec,{once:true});}}
+else if(unlocked)show();
 const names={cheat:'Visual MBA cheat sheet',toolkit:'L&D toolkit',demo:'Simulation demo'};
-document.querySelectorAll('.pick').forEach(b=>b.onclick=()=>{document.getElementById('resIn').value=b.dataset.r;document.getElementById('pickedLbl').textContent='You picked: '+names[b.dataset.r]+' (+ the other two)';document.getElementById('get').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.querySelector('#leadF [name=name]').focus(),500)});
+document.querySelectorAll('.pick').forEach(b=>b.onclick=()=>{if(document.getElementById('unlocked').style.display==='block'){document.getElementById('get').scrollIntoView({behavior:'smooth'});return}document.getElementById('resIn').value=b.dataset.r;document.getElementById('pickedLbl').textContent='You picked: '+names[b.dataset.r]+' (+ the other two)';document.getElementById('get').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.querySelector('#leadF [name=name]').focus(),500)});
 const p=new URLSearchParams(location.search).get('r');if(p&&names[p])document.getElementById('resIn').value=p;
 document.getElementById('leadF').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,m=document.getElementById('lm'),btn=f.querySelector('button');btn.disabled=true;btn.textContent='Unlocking…';
  const d=Object.fromEntries(new FormData(f));try{if(!window.saveTo)throw new Error('offline');await window.saveTo('leads',d);try{localStorage.setItem(KEY,'1')}catch(e){}show();}catch(err){m.className='msg err';m.textContent='Something went wrong. Please try again, or email abanoub.armanios@enlightensim.org.';btn.disabled=false;btn.textContent='Send me the free resources →'}});
