@@ -36,7 +36,7 @@ nav.solid{background:rgba(7,11,22,.55)}
 nav .navcta{font-size:13px;font-weight:800;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.34);padding:9px 18px;border-radius:30px}
 
 /* hero */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:linear-gradient(150deg,#03060f,#0a1730 48%,#0c1d3f);color:#fff;overflow:hidden;padding:120px 0 80px}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:linear-gradient(150deg,#03060f,#0a1730 48%,#0c1d3f);color:#fff;overflow:hidden;padding:70px 0 80px}
 .blob{position:absolute;border-radius:50%;filter:blur(20px);opacity:.8;z-index:0}
 .b1{width:520px;height:520px;background:radial-gradient(circle,rgba(255,215,0,.35),transparent 65%);top:-160px;right:-120px}
 .b2{width:460px;height:460px;background:radial-gradient(circle,rgba(0,207,255,.28),transparent 65%);bottom:-160px;left:-140px}
@@ -106,12 +106,77 @@ footer b{color:var(--ac)}
  .hgrid{grid-template-columns:1fr}.shotframe{transform:none}
  .facts,.auds,.comps,.gallery{grid-template-columns:1fr}.facts{margin-top:24px}
 }
-</style></head><body>
+</style>
 
-<nav id="nav">
-  <a class="brand" href="#top"><img src="img/m/69a4859fdf20.webp"><b>Enlighten.</b></a>
-  <a class="navcta" href="mailto:abanoub.armanios@enlightensim.org?subject=Demo%20request%20%E2%80%94%20Psychology of Money">Book a demo</a>
-</nav>
+<style id="enl-chrome-css">
+.eh{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:saturate(150%) blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #ECE7FB;font-family:Inter,system-ui,sans-serif}
+.eh *{box-sizing:border-box}
+.eh-in{max-width:1200px;margin:0 auto;padding:0 20px;height:66px;display:flex;align-items:center;gap:18px}
+.eh-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1B1233;flex:none}
+.eh-brand img{width:36px;height:36px;object-fit:contain}
+.eh-brand b{font:700 21px/1 "Space Grotesk",Inter,sans-serif;letter-spacing:-.01em}.eh-brand b i{font-style:normal;color:#E6A700}
+.eh-nav{display:flex;align-items:center;gap:4px;margin:0 auto}
+.eh-nav>a,.eh-dd>button{font:600 15px Inter,system-ui,sans-serif;color:#3A2D5C;text-decoration:none;padding:9px 13px;border-radius:999px;background:none;border:0;cursor:pointer;white-space:nowrap}
+.eh-nav>a:hover,.eh-dd>button:hover,.eh-nav>a.on,.eh-dd.on>button{background:#F3EDFF;color:#6C2BD9}
+.eh-dd{position:relative}
+.eh-menu{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);min-width:300px;background:#fff;border:1px solid #ECE7FB;border-radius:16px;box-shadow:0 18px 40px rgba(27,18,51,.16);padding:8px;display:none}
+.eh-dd:hover .eh-menu,.eh-dd:focus-within .eh-menu,.eh-dd.open .eh-menu{display:block}
+.eh-menu a{display:block;padding:10px 12px;border-radius:10px;text-decoration:none;color:#1B1233}
+.eh-menu a:hover{background:#F8F6FF}.eh-menu a b{display:block;font:600 15px Inter,sans-serif}.eh-menu a span{display:block;font-size:13px;color:#6F6390;margin-top:2px}
+.eh-menu hr{border:0;border-top:1px solid #ECE7FB;margin:6px 4px}
+.eh-act{display:flex;align-items:center;gap:8px;flex:none}
+.eh-signin{display:inline-flex;align-items:center;gap:7px;font:600 15px Inter,sans-serif;color:#6C2BD9;text-decoration:none;padding:9px 16px;border-radius:999px;border:1.5px solid #6C2BD9;background:#fff;white-space:nowrap}
+.eh-signin:hover{background:#F3EDFF}.eh-signin svg{width:17px;height:17px}
+.eh-cta{font:700 15px Inter,sans-serif;color:#fff;text-decoration:none;padding:10px 18px;border-radius:999px;background:linear-gradient(115deg,#6C2BD9,#FF5FA2);white-space:nowrap;box-shadow:0 6px 16px rgba(108,43,217,.25)}
+.eh-mcta{display:none}
+.eh-burger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid #ECE7FB;background:#fff;font-size:20px;cursor:pointer;color:#1B1233}
+@media(max-width:1020px){.eh-cta{display:none}}
+@media(max-width:860px){
+ .eh-in{height:60px;gap:10px}.eh-brand b{font-size:19px}
+ .eh-burger{display:block}
+ .eh-nav{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;background:#fff;border-bottom:1px solid #ECE7FB;padding:10px 16px 16px;box-shadow:0 18px 30px rgba(27,18,51,.12);margin:0}
+ .eh.open .eh-nav{display:flex}
+ .eh-act{margin-left:auto}
+ .eh-menu{position:static;transform:none;box-shadow:none;border:0;padding:0 0 0 10px;min-width:0;display:block}
+ .eh-dd>button{display:none}
+ .eh-nav>a{padding:12px}
+ .eh-nav>a.eh-mcta{display:block;margin-top:8px;text-align:center;color:#fff;background:linear-gradient(115deg,#6C2BD9,#FF5FA2);font-weight:700}
+ .eh-signin{padding:8px 13px;font-size:14px}
+}
+.ef{background:#1B1233;color:#D9D2F0;font-family:Inter,system-ui,sans-serif;padding:54px 20px 30px;margin-top:0}
+.ef *{box-sizing:border-box}
+.ef-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+.ef h4{font:700 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#FFD36E;margin:0 0 14px}
+.ef a{display:block;color:#D9D2F0;text-decoration:none;font-size:15px;padding:4px 0}.ef a:hover{color:#fff}
+.ef-brand b{font:700 24px "Space Grotesk",Inter,sans-serif;color:#fff}.ef-brand b i{font-style:normal;color:#E6A700}
+.ef p{font-size:14px;line-height:1.6;color:#B9AFD8;margin:10px 0 0;max-width:320px}
+.ef-bottom{max-width:1200px;margin:34px auto 0;padding-top:18px;border-top:1px solid #3A2D5C;font-size:13px;color:#9C91BF;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:820px){.ef-in{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ef-in{grid-template-columns:1fr}}
+</style>
+</head><body>
+<!--ENL-HEADER--><header class="eh" id="eh"><div class="eh-in">
+<a class="eh-brand" href="index.html"><img src="img/enlighten-mark.png" alt="Enlighten logo"><b>Enlighten<i>.</i></b></a>
+<div class="eh-nav" role="navigation" aria-label="Main">
+<div class="eh-dd on"><button type="button" aria-haspopup="true" onclick="this.parentNode.classList.toggle('open')">Simulations ▾</button><div class="eh-menu">
+<a href="ticket-to-life.html"><b>Ticket to Life</b><span>Live a whole life, 18 to 75 · play on your own</span></a>
+<a href="aftermath.html"><b>Aftermath</b><span>Crisis leadership simulation</span></a>
+<a href="disc-leadership.html"><b>DISC Based Leadership</b><span>Lead every personality type</span></a>
+<a href="psychology-of-money.html"><b>Psychology of Money</b><span>Financial wellbeing for teams</span></a>
+<hr><a href="index.html#simulations"><b>See all simulations →</b></a></div></div>
+<a href="work-with-me.html">For companies</a>
+<a href="visual-mba.html">Visual MBA</a>
+<a href="free.html">Free resources</a>
+<a href="index.html#about">About</a>
+<a class="eh-mcta" href="work-with-me.html#book">Book a meeting →</a>
+</div>
+<div class="eh-act"><a class="eh-signin" href="learn/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Sign in</span></a><a class="eh-cta" href="work-with-me.html#book">Book a meeting</a>
+<button class="eh-burger" type="button" aria-label="Menu" onclick="document.getElementById('eh').classList.toggle('open')">☰</button></div>
+</div></header><!--/ENL-HEADER-->
+
+
+
+
 
 <header class="hero" id="top">
   <span class="blob b1"></span><span class="blob b2"></span>
@@ -170,12 +235,19 @@ footer b{color:var(--ac)}
   <p style="margin-top:18px;font-size:14px">abanoub.armanios@enlightensim.org &nbsp;&bull;&nbsp; +20 112 629 4115</p>
 </div></div></section>
 
-<footer><b>Enlighten.</b> &mdash; Training &amp; Simulation &nbsp;&bull;&nbsp; by Abanoub Armanios &nbsp;&bull;&nbsp; Cairo, Egypt</footer>
+
 
 <script>
-var nav=document.getElementById('nav');
-addEventListener('scroll',function(){nav.classList.toggle('solid',scrollY>40);});
+
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 </script>
+
+
+<!--ENL-FOOTER--><footer class="ef"><div class="ef-in">
+<div><div class="ef-brand"><b>Enlighten<i>.</i></b></div><p>Learning, but make it unforgettable. Business simulations and learning experiences by Abanoub Armanios · Cairo, Egypt.</p></div>
+<div><h4>Play &amp; learn</h4><a href="ticket-to-life.html">Ticket to Life</a><a href="visual-mba.html">Visual MBA course</a><a href="free.html">Free resources</a><a href="learn/">My account</a></div>
+<div><h4>For companies</h4><a href="work-with-me.html">Corporate training</a><a href="index.html#simulations">All simulations</a><a href="index.html#rooms">Live sessions</a><a href="work-with-me.html#book">Book a meeting</a></div>
+<div><h4>Connect</h4><a href="https://www.youtube.com/@abanoubarmanios" target="_blank" rel="noopener">YouTube</a><a href="https://www.linkedin.com/in/abanoub-armanios/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:abanoub.armanios@enlightensim.org">Email</a></div>
+</div><div class="ef-bottom"><span>© 2026 Enlighten · enlightensim.org</span><span>Arabic &amp; English · Egypt &amp; USA</span></div></footer><!--/ENL-FOOTER-->
 </body></html>

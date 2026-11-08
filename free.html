@@ -41,7 +41,75 @@ label{display:block;font-weight:600;font-size:.88rem;margin:14px 0 6px;color:var
 .msg{display:none;margin-top:14px;padding:14px 16px;border-radius:12px;font-weight:600}.msg.ok{display:block;background:#e9fbf2;color:#0b6b45}.msg.err{display:block;background:#ffecef;color:#a3123a}
 footer{padding:44px 0 30px;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}footer .fl{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin:12px 0}footer a:hover{color:var(--purple)}
 .stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:30px}.stats b{font-family:'Space Grotesk';font-size:1.9rem;display:block}.stats span{color:var(--muted);font-size:.9rem}
-</style></head><body><header class="nav"><div class="nav-in"><a class="brand" href="index.html"><img src="img/enlighten-mark.png" alt=""><div><span class="name">Enlighten<b>.</b></span><small>by Abanoub Armanios</small></div></a><nav class="nav-links"><a href="index.html#simulations">Simulations</a><a href="work-with-me.html">Corporate training</a><a href="free.html" class=on>Free resources</a><a href="visual-mba.html">Visual MBA</a></nav><a class="btn btn-primary" href="work-with-me.html#book">Book a call</a></div></header>
+</style>
+
+<style id="enl-chrome-css">
+.eh{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:saturate(150%) blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #ECE7FB;font-family:Inter,system-ui,sans-serif}
+.eh *{box-sizing:border-box}
+.eh-in{max-width:1200px;margin:0 auto;padding:0 20px;height:66px;display:flex;align-items:center;gap:18px}
+.eh-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1B1233;flex:none}
+.eh-brand img{width:36px;height:36px;object-fit:contain}
+.eh-brand b{font:700 21px/1 "Space Grotesk",Inter,sans-serif;letter-spacing:-.01em}.eh-brand b i{font-style:normal;color:#E6A700}
+.eh-nav{display:flex;align-items:center;gap:4px;margin:0 auto}
+.eh-nav>a,.eh-dd>button{font:600 15px Inter,system-ui,sans-serif;color:#3A2D5C;text-decoration:none;padding:9px 13px;border-radius:999px;background:none;border:0;cursor:pointer;white-space:nowrap}
+.eh-nav>a:hover,.eh-dd>button:hover,.eh-nav>a.on,.eh-dd.on>button{background:#F3EDFF;color:#6C2BD9}
+.eh-dd{position:relative}
+.eh-menu{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);min-width:300px;background:#fff;border:1px solid #ECE7FB;border-radius:16px;box-shadow:0 18px 40px rgba(27,18,51,.16);padding:8px;display:none}
+.eh-dd:hover .eh-menu,.eh-dd:focus-within .eh-menu,.eh-dd.open .eh-menu{display:block}
+.eh-menu a{display:block;padding:10px 12px;border-radius:10px;text-decoration:none;color:#1B1233}
+.eh-menu a:hover{background:#F8F6FF}.eh-menu a b{display:block;font:600 15px Inter,sans-serif}.eh-menu a span{display:block;font-size:13px;color:#6F6390;margin-top:2px}
+.eh-menu hr{border:0;border-top:1px solid #ECE7FB;margin:6px 4px}
+.eh-act{display:flex;align-items:center;gap:8px;flex:none}
+.eh-signin{display:inline-flex;align-items:center;gap:7px;font:600 15px Inter,sans-serif;color:#6C2BD9;text-decoration:none;padding:9px 16px;border-radius:999px;border:1.5px solid #6C2BD9;background:#fff;white-space:nowrap}
+.eh-signin:hover{background:#F3EDFF}.eh-signin svg{width:17px;height:17px}
+.eh-cta{font:700 15px Inter,sans-serif;color:#fff;text-decoration:none;padding:10px 18px;border-radius:999px;background:linear-gradient(115deg,#6C2BD9,#FF5FA2);white-space:nowrap;box-shadow:0 6px 16px rgba(108,43,217,.25)}
+.eh-mcta{display:none}
+.eh-burger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid #ECE7FB;background:#fff;font-size:20px;cursor:pointer;color:#1B1233}
+@media(max-width:1020px){.eh-cta{display:none}}
+@media(max-width:860px){
+ .eh-in{height:60px;gap:10px}.eh-brand b{font-size:19px}
+ .eh-burger{display:block}
+ .eh-nav{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;background:#fff;border-bottom:1px solid #ECE7FB;padding:10px 16px 16px;box-shadow:0 18px 30px rgba(27,18,51,.12);margin:0}
+ .eh.open .eh-nav{display:flex}
+ .eh-act{margin-left:auto}
+ .eh-menu{position:static;transform:none;box-shadow:none;border:0;padding:0 0 0 10px;min-width:0;display:block}
+ .eh-dd>button{display:none}
+ .eh-nav>a{padding:12px}
+ .eh-nav>a.eh-mcta{display:block;margin-top:8px;text-align:center;color:#fff;background:linear-gradient(115deg,#6C2BD9,#FF5FA2);font-weight:700}
+ .eh-signin{padding:8px 13px;font-size:14px}
+}
+.ef{background:#1B1233;color:#D9D2F0;font-family:Inter,system-ui,sans-serif;padding:54px 20px 30px;margin-top:0}
+.ef *{box-sizing:border-box}
+.ef-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+.ef h4{font:700 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#FFD36E;margin:0 0 14px}
+.ef a{display:block;color:#D9D2F0;text-decoration:none;font-size:15px;padding:4px 0}.ef a:hover{color:#fff}
+.ef-brand b{font:700 24px "Space Grotesk",Inter,sans-serif;color:#fff}.ef-brand b i{font-style:normal;color:#E6A700}
+.ef p{font-size:14px;line-height:1.6;color:#B9AFD8;margin:10px 0 0;max-width:320px}
+.ef-bottom{max-width:1200px;margin:34px auto 0;padding-top:18px;border-top:1px solid #3A2D5C;font-size:13px;color:#9C91BF;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:820px){.ef-in{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ef-in{grid-template-columns:1fr}}
+</style>
+</head><body>
+<!--ENL-HEADER--><header class="eh" id="eh"><div class="eh-in">
+<a class="eh-brand" href="index.html"><img src="img/enlighten-mark.png" alt="Enlighten logo"><b>Enlighten<i>.</i></b></a>
+<div class="eh-nav" role="navigation" aria-label="Main">
+<div class="eh-dd"><button type="button" aria-haspopup="true" onclick="this.parentNode.classList.toggle('open')">Simulations ▾</button><div class="eh-menu">
+<a href="ticket-to-life.html"><b>Ticket to Life</b><span>Live a whole life, 18 to 75 · play on your own</span></a>
+<a href="aftermath.html"><b>Aftermath</b><span>Crisis leadership simulation</span></a>
+<a href="disc-leadership.html"><b>DISC Based Leadership</b><span>Lead every personality type</span></a>
+<a href="psychology-of-money.html"><b>Psychology of Money</b><span>Financial wellbeing for teams</span></a>
+<hr><a href="index.html#simulations"><b>See all simulations →</b></a></div></div>
+<a href="work-with-me.html">For companies</a>
+<a href="visual-mba.html">Visual MBA</a>
+<a href="free.html" class="on">Free resources</a>
+<a href="index.html#about">About</a>
+<a class="eh-mcta" href="work-with-me.html#book">Book a meeting →</a>
+</div>
+<div class="eh-act"><a class="eh-signin" href="learn/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Sign in</span></a><a class="eh-cta" href="work-with-me.html#book">Book a meeting</a>
+<button class="eh-burger" type="button" aria-label="Menu" onclick="document.getElementById('eh').classList.toggle('open')">☰</button></div>
+</div></header><!--/ENL-HEADER-->
+
+
 <section class="hero"><div class="blob" style="width:480px;height:480px;background:radial-gradient(circle,#d7c3ff,#fff0 70%);top:-120px;left:-120px"></div><div class="blob" style="width:420px;height:420px;background:radial-gradient(circle,#ffe39e,#fff0 70%);top:80px;right:-140px"></div>
 <div class="wrap"><span class="eyebrow">Free · from the Visual MBA channel</span><h1>Take the MBA <span class="gt">to work with you.</span></h1><p class="lead">Three free resources for managers, HR and L&amp;D teams. Tell us where to send them and they're yours, instantly.</p></div></section>
 <section style="padding-top:10px"><div class="wrap"><div class="grid g3"><div class="card" id="r-cheat"><div class="ic">📘</div><h3>Visual MBA cheat sheet</h3><p>The 20 frameworks from the Visual MBA series on one page each: the big idea, three takeaways and one thing to try at work this week.</p><p style="margin-top:12px;font-size:.85rem;font-weight:700;color:var(--purple)">22-page PDF</p><button class="btn btn-primary pick" data-r="cheat" style="margin-top:18px;width:100%">Get it free</button></div><div class="card" id="r-toolkit"><div class="ic">🧰</div><h3>The L&amp;D toolkit for managers</h3><p>Five printable tools: training needs analysis, ADDIE planner, Kirkpatrick evaluation plan, simulation debrief guide and a learning-transfer checklist.</p><p style="margin-top:12px;font-size:.85rem;font-weight:700;color:var(--purple)">7-page PDF</p><button class="btn btn-primary pick" data-r="toolkit" style="margin-top:18px;width:100%">Get it free</button></div><div class="card" id="r-demo"><div class="ic">🎮</div><h3>Free simulation demo</h3><p>Play two of our live business games right in your browser: a team trust race and a one-year money-decisions challenge (Arabic).</p><p style="margin-top:12px;font-size:.85rem;font-weight:700;color:var(--purple)">Plays in the browser</p><button class="btn btn-primary pick" data-r="demo" style="margin-top:18px;width:100%">Get it free</button></div></div></div></section>
@@ -55,9 +123,7 @@ footer{padding:44px 0 30px;text-align:center;border-top:1px solid var(--line);co
 <div class="grid" style="gap:10px"><a class="btn btn-ghost" href="free/Visual-MBA-Cheat-Sheet.pdf" target="_blank" download>📘 Visual MBA cheat sheet (PDF)</a><a class="btn btn-ghost" href="free/LD-Toolkit-for-Managers.pdf" target="_blank" download>🧰 L&amp;D toolkit for managers (PDF)</a>
 <a class="btn btn-ghost" href="https://abanoubarmanios.github.io/prisoners-dilemma/" target="_blank" rel="noopener">🎮 Demo: Prisoner's Dilemma team race</a><a class="btn btn-ghost" href="https://abanoubarmanios.github.io/finance-decisions-game/" target="_blank" rel="noopener">💰 Demo: One year, 4 money decisions (Arabic)</a></div>
 <div class="card" style="margin-top:20px;background:var(--psoft);border:none"><h3 style="margin-top:0">Want your whole team to play the full version?</h3><p>We run live simulations for corporate teams, in Arabic or English.</p><a class="btn btn-primary" style="margin-top:14px" href="work-with-me.html">See corporate training →</a></div></div>
-</div></div></section><footer><div class="wrap"><div class="brand" style="justify-content:center"><img src="img/enlighten-mark.png" alt="" style="width:32px;height:32px"><span class="name">Enlighten<b>.</b></span></div>
-<div class="fl"><a href="index.html">Home</a><a href="work-with-me.html">Corporate training</a><a href="free.html">Free resources</a><a href="https://www.youtube.com/@abanoubarmanios" target="_blank" rel="noopener">YouTube</a><a href="https://www.linkedin.com/in/abanoub-armanios/" target="_blank" rel="noopener">LinkedIn</a></div>
-<p>Learning, but make it unforgettable. · Cairo, Egypt · <a href="mailto:abanoub.armanios@enlightensim.org">abanoub.armanios@enlightensim.org</a></p></div></footer><script type="module">
+</div></div></section><script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {getFirestore,collection,addDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 const app=initializeApp({"apiKey": "AIzaSyAWx1VbP6w6s0gt0YFBiylg_vj0q4ux7BY", "authDomain": "enlighten-website-75dfd.firebaseapp.com", "projectId": "enlighten-website-75dfd", "storageBucket": "enlighten-website-75dfd.firebasestorage.app", "messagingSenderId": "629120766450", "appId": "1:629120766450:web:50be642246ec032bd91b6b"});const db=getFirestore(app);
@@ -75,4 +141,12 @@ document.querySelectorAll('.pick').forEach(b=>b.onclick=()=>{document.getElement
 const p=new URLSearchParams(location.search).get('r');if(p&&names[p])document.getElementById('resIn').value=p;
 document.getElementById('leadF').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,m=document.getElementById('lm'),btn=f.querySelector('button');btn.disabled=true;btn.textContent='Unlocking…';
  const d=Object.fromEntries(new FormData(f));try{if(!window.saveTo)throw new Error('offline');await window.saveTo('leads',d);try{localStorage.setItem(KEY,'1')}catch(e){}show();}catch(err){m.className='msg err';m.textContent='Something went wrong. Please try again, or email abanoub.armanios@enlightensim.org.';btn.disabled=false;btn.textContent='Send me the free resources →'}});
-</script></body></html>
+</script>
+
+<!--ENL-FOOTER--><footer class="ef"><div class="ef-in">
+<div><div class="ef-brand"><b>Enlighten<i>.</i></b></div><p>Learning, but make it unforgettable. Business simulations and learning experiences by Abanoub Armanios · Cairo, Egypt.</p></div>
+<div><h4>Play &amp; learn</h4><a href="ticket-to-life.html">Ticket to Life</a><a href="visual-mba.html">Visual MBA course</a><a href="free.html">Free resources</a><a href="learn/">My account</a></div>
+<div><h4>For companies</h4><a href="work-with-me.html">Corporate training</a><a href="index.html#simulations">All simulations</a><a href="index.html#rooms">Live sessions</a><a href="work-with-me.html#book">Book a meeting</a></div>
+<div><h4>Connect</h4><a href="https://www.youtube.com/@abanoubarmanios" target="_blank" rel="noopener">YouTube</a><a href="https://www.linkedin.com/in/abanoub-armanios/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:abanoub.armanios@enlightensim.org">Email</a></div>
+</div><div class="ef-bottom"><span>© 2026 Enlighten · enlightensim.org</span><span>Arabic &amp; English · Egypt &amp; USA</span></div></footer><!--/ENL-FOOTER-->
+</body></html>
