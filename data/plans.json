@@ -1,0 +1,14 @@
+{
+  "currencyDefault": "USD",
+  "products": {
+    "visual-mba": {
+      "name": "Visual MBA (SCORM licence, 12 months)",
+      "plans": {
+        "team":       {"name": "Team",       "seats": 50,   "priceUSD": null, "priceEGP": null, "checkout": "invoice"},
+        "business":   {"name": "Business",   "seats": 250,  "priceUSD": null, "priceEGP": null, "checkout": "invoice"},
+        "enterprise": {"name": "Enterprise", "seats": null, "priceUSD": null, "priceEGP": null, "checkout": "quote"}
+      }
+    }
+  },
+  "_notes": "Set priceUSD/priceEGP to numbers and checkout to 'online' once a payment provider is connected in js/payments.js. null price = shown as 'Request invoice'."
+}

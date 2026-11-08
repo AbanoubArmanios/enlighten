@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout | Visual MBA licence | Enlighten</title>
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="img/enlighten-mark.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b1233;--ink2:#3a2d5c;--muted:#6b6390;--purple:#6c2bd9;--pink:#ff5fa2;--gold:#e6a700;--soft:#f8f6ff;--psoft:#f3edff;--line:#ece7fb;--shadow:0 18px 50px -20px rgba(76,42,140,.35);--g:linear-gradient(110deg,#6c2bd9,#ff5fa2 60%,#e6a700)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.08;letter-spacing:-.02em}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}.gt{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{display:inline-flex;gap:8px;font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);background:var(--psoft);padding:7px 14px;border-radius:999px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-family:'Space Grotesk';font-size:1rem;padding:14px 26px;border-radius:999px;cursor:pointer;border:none;transition:transform .18s}.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(115deg,var(--purple),var(--pink));color:#fff;box-shadow:0 14px 30px -10px rgba(157,78,221,.6)}.btn-gold{background:linear-gradient(115deg,var(--gold),#ffd34d);color:#3a2a00}.btn-ghost{background:#fff;color:var(--ink);border:2px solid var(--line)}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.85);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;max-width:1280px;margin:0 auto;gap:12px}
+.brand{display:flex;align-items:center;gap:11px}.brand img{width:40px;height:40px;object-fit:contain}.brand .name{font-family:Fredoka;font-weight:700;font-size:1.5rem}.brand .name b{color:var(--gold)}
+.brand small{display:block;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:-4px}
+.nav-links{display:flex;gap:26px}.nav-links a{font-weight:600;font-size:.94rem;color:var(--ink2)}.nav-links a:hover,.nav-links a.on{color:var(--purple)}
+@media(max-width:900px){.nav-links{display:none}.nav-in .btn{padding:11px 18px;font-size:.9rem}}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;z-index:0;pointer-events:none}
+.hero{position:relative;padding:72px 0 48px;overflow:hidden}.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:clamp(2.3rem,5.6vw,4.1rem);margin:18px 0 18px;max-width:900px}.hero p.lead{font-size:1.18rem;color:var(--ink2);max-width:680px}
+section{padding:64px 0}.soft{background:var(--soft)}h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:12px 0 14px}.sub{color:var(--ink2);max-width:700px;font-size:1.06rem}
+.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}
+@media(max-width:900px){.g3,.g4,.g2{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 8px 24px -16px rgba(76,42,140,.3)}.card h3{font-size:1.3rem;margin:10px 0 8px}.card p{color:var(--ink2);font-size:.98rem}
+.ic{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:var(--psoft)}
+.field{width:100%;padding:13px 15px;border-radius:12px;border:1.5px solid var(--line);font:inherit;font-size:1rem;background:#fff;color:var(--ink)}.field:focus{outline:none;border-color:var(--purple)}
+label{display:block;font-weight:600;font-size:.88rem;margin:14px 0 6px;color:var(--ink2)}textarea.field{min-height:120px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:600px){.row2{grid-template-columns:1fr}}
+.msg{display:none;margin-top:14px;padding:14px 16px;border-radius:12px;font-weight:600}.msg.ok{display:block;background:#e9fbf2;color:#0b6b45}.msg.err{display:block;background:#ffecef;color:#a3123a}
+footer{padding:44px 0 30px;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}footer .fl{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin:12px 0}footer a:hover{color:var(--purple)}
+.stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:30px}.stats b{font-family:'Space Grotesk';font-size:1.9rem;display:block}.stats span{color:var(--muted);font-size:.9rem}
+</style></head><body><header class="nav"><div class="nav-in"><a class="brand" href="index.html"><img src="img/enlighten-mark.png" alt=""><div><span class="name">Enlighten<b>.</b></span><small>by Abanoub Armanios</small></div></a><nav class="nav-links"><a href="index.html#simulations">Simulations</a><a href="work-with-me.html">Corporate training</a><a href="free.html">Free resources</a><a href="visual-mba.html">Visual MBA</a></nav><a class="btn btn-primary" href="work-with-me.html#book">Book a call</a></div></header>
+<section class="hero" style="padding-bottom:20px"><div class="wrap" style="max-width:820px"><span class="eyebrow">Checkout</span><h1 style="font-size:2.6rem">Get Visual MBA <span class="gt">for your team.</span></h1><p class="lead" id="planLine">Loading plan…</p></div></section>
+<section style="padding-top:0"><div class="wrap" style="max-width:820px"><div class="card" style="padding:30px">
+<form id="ordF">
+<label>Plan</label><select class="field" name="plan" id="planSel"></select>
+<div class="row2"><div><label>Your name</label><input class="field" name="name" required maxlength="120"></div><div><label>Work email (for the invoice and licence)</label><input class="field" type="email" name="email" required maxlength="200"></div></div>
+<div class="row2"><div><label>Company (legal name for the invoice)</label><input class="field" name="company" required maxlength="160"></div><div><label>Country</label><select class="field" name="country" id="ctry"><option>Egypt</option><option>United States</option><option>Saudi Arabia</option><option>United Arab Emirates</option><option>Other</option></select></div></div>
+<div class="row2"><div><label>Number of learners</label><input class="field" type="number" name="seats" min="1" max="100000" value="50" required></div><div><label>Currency</label><select class="field" name="currency" id="cur"><option>USD</option><option>EGP</option></select></div></div>
+<div class="row2"><div><label>Phone / WhatsApp</label><input class="field" name="phone" maxlength="40"></div><div><label>Tax / VAT ID (optional)</label><input class="field" name="taxId" maxlength="40"></div></div>
+<label>LMS you use (optional)</label><input class="field" name="lms" maxlength="80" placeholder="e.g. Moodle, Cornerstone, SAP SuccessFactors, Docebo">
+<div id="price" style="margin-top:18px;padding:16px 18px;border-radius:14px;background:var(--psoft);font-weight:600"></div>
+<button class="btn btn-primary" id="payBtn" style="width:100%;margin-top:18px" type="submit">Request invoice →</button>
+<p style="font-size:.85rem;color:var(--muted);margin-top:10px">Annual licence. After payment you receive the SCORM package and setup guide by email.</p>
+<div class="msg" id="om"></div></form>
+<div id="okBox" style="display:none"><h2 style="font-size:1.8rem">Order received 🎉</h2><p class="sub" style="margin-top:8px">Your order reference is <b id="oid"></b>. We'll email your invoice and payment link within one working day, then send the course package as soon as payment is confirmed.</p><a class="btn btn-ghost" style="margin-top:18px" href="visual-mba-demo/" target="_blank">Explore the demo meanwhile</a></div>
+</div></div></section><footer><div class="wrap"><div class="brand" style="justify-content:center"><img src="img/enlighten-mark.png" alt="" style="width:32px;height:32px"><span class="name">Enlighten<b>.</b></span></div>
+<div class="fl"><a href="index.html">Home</a><a href="work-with-me.html">Corporate training</a><a href="free.html">Free resources</a><a href="https://www.youtube.com/@abanoubarmanios" target="_blank" rel="noopener">YouTube</a><a href="https://www.linkedin.com/in/abanoub-armanios/" target="_blank" rel="noopener">LinkedIn</a></div>
+<p>Learning, but make it unforgettable. · Cairo, Egypt · <a href="mailto:abanoub.armanios@enlightensim.org">abanoub.armanios@enlightensim.org</a></p></div></footer><script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getFirestore,collection,addDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const app=initializeApp({"apiKey": "AIzaSyAWx1VbP6w6s0gt0YFBiylg_vj0q4ux7BY", "authDomain": "enlighten-website-75dfd.firebaseapp.com", "projectId": "enlighten-website-75dfd", "storageBucket": "enlighten-website-75dfd.firebasestorage.app", "messagingSenderId": "629120766450", "appId": "1:629120766450:web:50be642246ec032bd91b6b"});const db=getFirestore(app);
+const qs=new URLSearchParams(location.search);const SRC=(qs.get('src')||qs.get('utm_source')||document.referrer.replace(/^https?:\/\//,'').split('/')[0]||'direct').slice(0,60);
+window.saveTo=async(col,data)=>{const clean={};for(const[k,v]of Object.entries(data)){if(v!==''&&v!=null)clean[k]=String(v).slice(0,k==='message'?4900:200)}clean.source=SRC;clean.ts=serverTimestamp();await addDoc(collection(db,col),clean);
+ try{fetch('https://formsubmit.co/ajax/abanoub.armanios@enlightensim.org',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({_subject:col==='leads'?'New free-resource lead: '+(clean.resource||''):'New corporate-training enquiry',_template:'table',...clean,ts:new Date().toISOString()})})}catch(e){}};
+window.saveOrder=async(data)=>{const clean={};for(const[k,v]of Object.entries(data)){if(v!==''&&v!=null)clean[k]=typeof v==='number'?v:String(v).slice(0,200)}clean.status='pending_payment';clean.source=SRC;clean.ts=serverTimestamp();const ref=await addDoc(collection(db,'orders'),clean);try{fetch('https://formsubmit.co/ajax/abanoub.armanios@enlightensim.org',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({_subject:'New order: '+clean.product+' / '+clean.plan,_template:'table',orderId:ref.id,...clean,ts:new Date().toISOString()})})}catch(e){}return ref.id};
+document.dispatchEvent(new Event('fbready'));
+</script><script src="js/payments.js"></script>
+<script>
+let PLANS=null; const qs=new URLSearchParams(location.search);
+fetch('data/plans.json').then(r=>r.json()).then(j=>{PLANS=j.products['visual-mba'];const sel=document.getElementById('planSel');
+ sel.innerHTML=Object.entries(PLANS.plans).map(([k,p])=>`<option value="${k}">${p.name}${p.seats?' (up to '+p.seats+' learners)':' (unlimited learners)'}</option>`).join('');
+ if(qs.get('plan')&&PLANS.plans[qs.get('plan')]) sel.value=qs.get('plan'); upd();});
+document.getElementById('ctry').onchange=e=>{document.getElementById('cur').value=e.target.value==='Egypt'?'EGP':'USD';upd()};
+['planSel','cur'].forEach(id=>document.getElementById(id).addEventListener('change',upd));
+function upd(){if(!PLANS)return;const k=document.getElementById('planSel').value,p=PLANS.plans[k],cur=document.getElementById('cur').value,pr=cur==='EGP'?p.priceEGP:p.priceUSD;
+ document.getElementById('planLine').textContent=PLANS.name+' · '+p.name+' plan';
+ document.querySelector('[name=seats]').max=p.seats||100000;
+ const online=p.checkout==='online'&&pr!=null&&window.EnlPayments.PROVIDER!=='none';
+ document.getElementById('price').textContent=pr!=null?('Price: '+pr.toLocaleString()+' '+cur+' / year'):(p.checkout==='quote'?'Custom pricing: we will send you a quote.':'We will email you an invoice with the price for your team.');
+ document.getElementById('payBtn').textContent=online?'Continue to payment →':(p.checkout==='quote'?'Request a quote →':'Request invoice →');}
+document.getElementById('ordF').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,m=document.getElementById('om'),b=document.getElementById('payBtn');b.disabled=true;b.textContent='Saving…';
+ try{const d=Object.fromEntries(new FormData(f));const k=d.plan,p=PLANS.plans[k];d.product='visual-mba';d.seats=Math.max(1,parseInt(d.seats)||1);const pr=d.currency==='EGP'?p.priceEGP:p.priceUSD;d.provider=window.EnlPayments.PROVIDER;
+  if(!window.saveOrder)throw new Error('offline');const id=await window.saveOrder(d);const r=await window.EnlPayments.start({id,...d});
+  if(r.mode!=='redirect'){f.style.display='none';document.getElementById('okBox').style.display='block';document.getElementById('oid').textContent=id.slice(0,8).toUpperCase();}}
+ catch(err){m.className='msg err';m.textContent='Something went wrong. Please email abanoub.armanios@enlightensim.org.';b.disabled=false;upd();}});
+</script>
+</body></html>
