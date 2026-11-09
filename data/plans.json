@@ -20,7 +20,7 @@
         "individual": {
           "name": "Individual ticket",
           "seats": 1,
-          "priceUSD": 15,
+          "priceUSD": 19,
           "priceEGP": 499,
           "checkout": "online"
         }
